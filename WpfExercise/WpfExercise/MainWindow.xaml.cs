@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfExercise.ViewModels;
 
 namespace WpfExercise
 {
@@ -23,6 +24,12 @@ namespace WpfExercise
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void NavWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            // Stop using camera.
+            MyVideoSourceViewModel.StopVideoSource();
         }
     }
 }

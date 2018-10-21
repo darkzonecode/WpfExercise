@@ -14,10 +14,10 @@
         <converters:ColorsNameConverter x:Key="ColorNameConverter"/>
     </Page.Resources>
 
-    <Grid >
+    <Grid>
         <StackPanel HorizontalAlignment="Center"  VerticalAlignment="Center" >
-
-            <Grid DataContext="{Binding Source={StaticResource mediaColors}}">
+            <TextBlock Text="Welcome, " FontSize="22" HorizontalAlignment="Center"/>
+            <Grid DataContext="{Binding Source={StaticResource mediaColors}}" Margin="0,16,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="40"/>

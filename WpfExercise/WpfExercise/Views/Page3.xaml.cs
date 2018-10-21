@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfExercise.ViewModels;
 
 namespace WpfExercise.Views
 {
@@ -21,6 +23,7 @@ namespace WpfExercise.Views
     /// </summary>
     public partial class Page3 : Page
     {
+        private VideoCaptureDevice videoSource1;
         public Page3()
         {
             InitializeComponent();
@@ -32,6 +35,9 @@ namespace WpfExercise.Views
             if (NavigationService.CanGoBack)
             {
                 NavigationService.GoBack();
+
+                // Stop player.
+                StopCamera();
             }
 
             e.Handled = true;
@@ -42,17 +48,7 @@ namespace WpfExercise.Views
             NavigationService.Navigate(new Page4());
 
             // Stop player.
-            if (MyPlayer.IsRunning)
-            {
-                MyPlayer.SignalToStop();
-
-                // just wait 3 second  
-                //Thread.Sleep(3000);
-
-                MyPlayer.Stop();
-            }
-
-            MyPlayer.VideoSource = null;
+            StopCamera();
 
 
 
@@ -61,84 +57,38 @@ namespace WpfExercise.Views
 
         private void BtnStart_Click(object sender, RoutedEventArgs e)
         {
-            VideoCaptureDeviceForm form = new VideoCaptureDeviceForm();
+            MyPlayer.VideoSource = MyVideoSourceViewModel.StartVideoSource();
 
-            if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                VideoCaptureDevice videoSource1 = form.VideoDevice;
+            MyPlayer.Start();
 
-                MyPlayer.VideoSource = videoSource1;
-
-                MyPlayer.Start();
-
-
-            }
-
-
-            // Enumerate video devices.
-            //var videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-
-            // Create video source.
-            //VideoCaptureDevice videoSource = new VideoCaptureDevice(videoDevices[0].MonikerString);
-            //VideoCaptureDevice videoSource = form.VideoDevice;
-
-
-
-            //videoSource.Start();
-
-            //VideoSourcePlayer player = new VideoSourcePlayer();
-
-            //player.AutoSizeControl = true;
-            //player.Start();
-
-
-            //MyPlayer.VideoSource = videoSource;
-
-            //MyPlayer.Start();
-
+            e.Handled = true;
         }
 
         private void BtnStop_Click(object sender, RoutedEventArgs e)
+        {
+            StopCamera();
+
+            e.Handled = true;
+        }
+
+        // Stop playing video from camera.
+        private void StopCamera()
         {
             if (MyPlayer.IsRunning)
             {
                 MyPlayer.SignalToStop();
 
                 // just wait 3 second  
-                //Thread.Sleep(3000);
+                Thread.Sleep(3000);
 
                 MyPlayer.Stop();
             }
 
             MyPlayer.VideoSource = null;
+
+            // Just make sure source is released.
+            MyVideoSourceViewModel.StopVideoSource();
         }
-
-
-
-        // Close video source if it is running
-        //private void CloseCurrentVideoSource()
-        //{
-        //    if (videoSourcePlayer.VideoSource != null)
-        //    {
-        //        videoSourcePlayer.SignalToStop();
-
-        //        // wait ~ 3 seconds
-        //        for (int i = 0; i < 30; i++)
-        //        {
-        //            if (!videoSourcePlayer.IsRunning)
-        //                break;
-        //            System.Threading.Thread.Sleep(100);
-        //        }
-
-        //        if (videoSourcePlayer.IsRunning)
-        //        {
-        //            videoSourcePlayer.Stop();
-        //        }
-
-        //        videoSourcePlayer.VideoSource = null;
-        //    }
-        //}
-
 
     }
 }
