@@ -9,6 +9,14 @@
         Height="600" Width="800" 
         ShowsNavigationUI="False" 
         Source="Views/Page1.xaml" 
-        Closing="NavWindow_Closing"/>
+        Closing="NavWindow_Closing" WindowState="Maximized" WindowStyle="None">
+    <NavigationWindow.ContextMenu>
+        <ContextMenu>
+            <MenuItem x:Name="CntClose" Header="Close" Click="CntClose_Click"/>
+
+        </ContextMenu>
+    </NavigationWindow.ContextMenu>
+
+</NavigationWindow>
     
 

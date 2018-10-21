@@ -31,5 +31,11 @@ namespace WpfExercise
             // Stop using camera.
             MyVideoSourceViewModel.StopVideoSource();
         }
+
+
+        private void CntClose_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

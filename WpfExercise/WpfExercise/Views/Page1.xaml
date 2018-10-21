@@ -16,8 +16,8 @@
             <TextBlock Text="Enter your name:"/>
             <TextBox x:Name="TxtBoxUserName"/>
 
-            <Button x:Name="BtnClearName" Content="Clear" Click="BtnClearName_Click"/>
-            <Button x:Name="BtnNextToSecondPage" Content="Next Page" Click="BtnNextToSecondPage_Click"/>
+            <Button x:Name="BtnClearName" Content="Clear" Click="BtnClearName_Click" Margin="0,16,0,0"/>
+            <Button x:Name="BtnNextToSecondPage" Content="Next Page" Click="BtnNextToSecondPage_Click" Margin="0,16,0,0"/>
         </StackPanel>
 
     </Grid>

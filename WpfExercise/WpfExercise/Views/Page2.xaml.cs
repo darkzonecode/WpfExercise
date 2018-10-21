@@ -23,8 +23,10 @@ namespace WpfExercise.Views
         public Page2()
         {
             InitializeComponent();
+
         }
 
+        
 
         private void BtnBackToFirstPage_Click(object sender, RoutedEventArgs e)
         {
@@ -35,7 +37,7 @@ namespace WpfExercise.Views
         }
 
         private void BtnNextPage_Click(object sender, RoutedEventArgs e)
-        {
+        {           
             //NavigationService.Navigate(new Uri("/Views/ThirdPage.xaml", UriKind.Relative));
             NavigationService.Navigate(new Page3());
         }
