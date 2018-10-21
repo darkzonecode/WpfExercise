@@ -1,0 +1,60 @@
+﻿<Page x:Class="WpfExercise.Views.Page2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfExercise.Views"
+      xmlns:converters="clr-namespace:WpfExercise.Converters"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Second Page">
+    <Page.Resources>
+
+        <ObjectDataProvider ObjectInstance="{x:Type Colors}" MethodName="GetProperties" x:Key="mediaColors"/>
+        <converters:ColorsNameConverter x:Key="ColorNameConverter"/>
+    </Page.Resources>
+
+    <Grid >
+        <StackPanel HorizontalAlignment="Center"  VerticalAlignment="Center" >
+
+            <Grid DataContext="{Binding Source={StaticResource mediaColors}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <ComboBox x:Name="CmbBoxColors" ItemsSource="{Binding Mode=OneWay, Source={StaticResource mediaColors}}" SelectedIndex="0">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name, Converter={StaticResource ColorNameConverter}}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <ComboBox x:Name="CmbStrokeColors" ItemsSource="{Binding Mode=OneWay, Source={StaticResource mediaColors}}" Grid.Column="2" SelectedIndex="0">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name, Converter={StaticResource ColorNameConverter}}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </Grid>
+
+
+            <Rectangle Width="300" Height="300" Margin="20" StrokeThickness="10"  
+                       Stroke="{Binding SelectedItem.Name, ElementName=CmbStrokeColors}" 
+                       Fill="{Binding SelectedItem.Name, ElementName=CmbBoxColors, Mode=OneWay}" />
+
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="BtnBackToFirstPage" Content="Back" Click="BtnBackToFirstPage_Click"/>
+                <Button x:Name="BtnNextPage" Content="Next Page" Grid.Column="2" Click="BtnNextPage_Click"/>
+            </Grid>
+        </StackPanel>
+
+    </Grid>
+</Page>

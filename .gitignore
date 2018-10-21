@@ -3,3 +3,6 @@
 ################################################################################
 
 /WpfExercise/.vs/WpfExercise/v15
+/WpfExercise/packages
+/WpfExercise/WpfExercise/bin/Debug
+/WpfExercise/WpfExercise/obj/Debug
