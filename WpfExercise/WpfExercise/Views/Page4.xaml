@@ -4,15 +4,17 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WpfExercise.Views"
+      xmlns:vm="clr-namespace:WpfExercise.ViewModels"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
       Title="Page4">
-
+    <Page.Resources>
+        <vm:WeatherViewModel x:Key="WeatherVM" />
+    </Page.Resources>
 
 
     <Grid >
-        <!--  d:DataContext="{d:DesignData /SampleData/WeatherViewModelSampleData.xaml}" -->
-        <StackPanel Width="600" Height="500" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Width="600" Height="500" DataContext="{StaticResource WeatherVM}" HorizontalAlignment="Center" VerticalAlignment="Center">
 
             <Grid Height="100" x:Name="WResult" DataContext="{Binding MyWeatherData}" >
                 <Grid.ColumnDefinitions>
@@ -40,7 +42,8 @@
                 <TextBox x:Name="TxtBoxZipCode" Margin="0,25,0,0" />
 
             </Grid>
-            <Button x:Name="BtnGetWeather" Content="Get the weather" HorizontalAlignment="Center" Click="BtnGetWeather_Click" Margin="0,16,0,0"/>
+            <Button x:Name="BtnGetWeather" Command="{Binding GetWeatherCommand}"  Content="Get the weather" HorizontalAlignment="Center"  Margin="0,16,0,0" 
+                    CommandParameter="{Binding Text, ElementName=TxtBoxZipCode}"/>
 
             <Grid Margin="0,16,0,0" >
                 <Grid.ColumnDefinitions>

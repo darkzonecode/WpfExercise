@@ -53,15 +53,15 @@ namespace WpfExercise.Views
             }
         }
 
-        private async void BtnGetWeather_Click(object sender, RoutedEventArgs e)
-        {
-            weather = new WeatherViewModel();
+        //private async void BtnGetWeather_Click(object sender, RoutedEventArgs e)
+        //{
+        //    //weather = new WeatherViewModel();
 
-            //await weather.GetWeatherAsync(TxtBoxZipCode.Text);
-            WResult.DataContext = await weather.GetWeatherAsync(TxtBoxZipCode.Text);
+        //    ////await weather.GetWeatherAsync(TxtBoxZipCode.Text);
+        //    //WResult.DataContext = await weather.GetWeatherAsync(TxtBoxZipCode.Text);
 
-            //WResult.DataContext = weather.MyWeatherData;
+        //    ////WResult.DataContext = weather.MyWeatherData;
 
-        }
+        //}
     }
 }
