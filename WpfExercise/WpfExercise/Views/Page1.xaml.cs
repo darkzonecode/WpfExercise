@@ -39,7 +39,9 @@ namespace WpfExercise.Views
             NavigationService.Navigate(new Page2());
 
             e.Handled = true;
-        }
 
+            // Save user name to the UserSettings
+            Properties.Settings.Default.UserName = TxtBoxUserName.Text;
+        }
     }
 }

@@ -40,7 +40,20 @@ namespace WpfExercise.Views
         {           
             //NavigationService.Navigate(new Uri("/Views/ThirdPage.xaml", UriKind.Relative));
             NavigationService.Navigate(new Page3());
+
+            //Properties.Settings.Default.RectFillColor = (System.Drawing.Color)CmbBoxColors.SelectedItem;
+            //Properties.Settings.Default.RectBorderColor = (System.Drawing.Color)CmbStrokeColors.SelectedItem;
         }
 
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            string uName = Properties.Settings.Default.UserName;
+
+            TxtWelUser.Text = "Welcome " + uName;
+
+            // Set combobox colors from app settings.
+            //CmbBoxColors.SelectedItem = Properties.Settings.Default.RectFillColor;
+            //CmbStrokeColors.SelectedItem = Properties.Settings.Default.RectBorderColor;
+        }
     }
 }
