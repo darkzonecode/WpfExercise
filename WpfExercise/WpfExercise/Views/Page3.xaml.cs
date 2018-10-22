@@ -23,7 +23,7 @@ namespace WpfExercise.Views
     /// </summary>
     public partial class Page3 : Page
     {
-        private VideoCaptureDevice videoSource1;
+        //private VideoCaptureDevice videoSource1;
         public Page3()
         {
             InitializeComponent();

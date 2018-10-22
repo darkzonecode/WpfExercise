@@ -24,14 +24,22 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <ComboBox x:Name="CmbBoxColors" ItemsSource="{Binding Mode=OneWay, Source={StaticResource mediaColors}}" SelectedIndex="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Fill Color:"/>
+                <ComboBox x:Name="CmbBoxColors" Grid.Row="1" ItemsSource="{Binding Mode=OneWay, Source={StaticResource mediaColors}}" SelectedIndex="0">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Name, Converter={StaticResource ColorNameConverter}}"/>
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
                 </ComboBox>
-                <ComboBox x:Name="CmbStrokeColors" ItemsSource="{Binding Mode=OneWay, Source={StaticResource mediaColors}}" Grid.Column="2" SelectedIndex="0">
+
+                <TextBlock Text="Border Color:" Grid.Column="2"/>
+                <ComboBox x:Name="CmbStrokeColors" Grid.Row="1" ItemsSource="{Binding Mode=OneWay, Source={StaticResource mediaColors}}" Grid.Column="2" SelectedIndex="0">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Name, Converter={StaticResource ColorNameConverter}}"/>

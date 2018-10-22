@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfExercise.ViewModels;
 
 namespace WpfExercise.Views
 {
@@ -20,10 +21,15 @@ namespace WpfExercise.Views
     /// </summary>
     public partial class Page4 : Page
     {
+        private WeatherViewModel weather;
+
+
         public Page4()
         {
             InitializeComponent();
         }
+
+
 
 
         private void BtnGoHome_Click(object sender, RoutedEventArgs e)
@@ -47,5 +53,14 @@ namespace WpfExercise.Views
             }
         }
 
+        private async void BtnGetWeather_Click(object sender, RoutedEventArgs e)
+        {
+            weather = new WeatherViewModel();
+
+            WResult.DataContext = await weather.GetWeatherAsync(TxtBoxZipCode.Text);
+
+            //WResult.DataContext = weather.MyWeatherData;
+
+        }
     }
 }

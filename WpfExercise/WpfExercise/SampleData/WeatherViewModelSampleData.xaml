@@ -1,0 +1,66 @@
+﻿<ViewModels:WeatherViewModel xmlns:ViewModels="clr-namespace:WpfExercise.ViewModels" xmlns:Models="clr-namespace:WpfExercise.Models" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:Markup="clr-namespace:System.Windows.Markup;assembly=System.Xaml">
+	<ViewModels:WeatherViewModel.MyWeatherData>
+		<Models:WeatherByZip _base="Odio per felis feugiat" cod="30" dt="13" id="18" name="Facilisis montes">
+			<Models:WeatherByZip.coord>
+				<Models:Coord>
+					<Models:Coord.lon>
+						<System:Single/>
+					</Models:Coord.lon>
+					<Models:Coord.lat>
+						<System:Single/>
+					</Models:Coord.lat>
+				</Models:Coord>
+			</Models:WeatherByZip.coord>
+			<Models:WeatherByZip.clouds>
+				<Models:Clouds all="15"/>
+			</Models:WeatherByZip.clouds>
+			<Models:WeatherByZip.main>
+				<Models:Main humidity="52">
+					<Models:Main.pressure>
+						<System:Single/>
+					</Models:Main.pressure>
+					<Models:Main.temp_max>
+						<System:Single/>
+					</Models:Main.temp_max>
+					<Models:Main.temp>
+						<System:Single/>
+					</Models:Main.temp>
+					<Models:Main.temp_min>
+						<System:Single/>
+					</Models:Main.temp_min>
+				</Models:Main>
+			</Models:WeatherByZip.main>
+			<Models:WeatherByZip.sys>
+				<Models:Sys country="Class curae curabitur" id="97" sunset="38" sunrise="15" type="84">
+					<Models:Sys.message>
+						<System:Single/>
+					</Models:Sys.message>
+				</Models:Sys>
+			</Models:WeatherByZip.sys>
+			<Models:WeatherByZip.wind>
+				<Models:Wind>
+					<Models:Wind.deg>
+						<System:Single/>
+					</Models:Wind.deg>
+					<Models:Wind.speed>
+						<System:Single/>
+					</Models:Wind.speed>
+				</Models:Wind>
+			</Models:WeatherByZip.wind>
+			<Models:WeatherByZip.weather>
+				<Markup:Array Type="{Markup:Type Models:Weather}">
+					<Models:Weather description="Duis phasellus aenean nunc nam" icon="Donec amet maecenas ante" id="78" main="Aliquam cras integer"/>
+					<Models:Weather description="Accumsan etiam sed arcu" icon="Nullam consequat" id="73" main="Praesent mauris"/>
+					<Models:Weather description="Aptent parturient diam" icon="Bibendum eget" id="78" main="Vestibulum adipiscing dis est fusce"/>
+					<Models:Weather description="Dictumst eleifend convallis" icon="Vivamus vestibulum" id="35" main="Elit quisque"/>
+					<Models:Weather description="Aliquet enim" icon="Auctor faucibus lorem congue" id="40" main="Facilisi vestibulum adipiscing aliquam"/>
+					<Models:Weather description="Cursus dictum parturient lectus" icon="Dignissim habitant erat" id="88" main="Morbi blandit nulla"/>
+					<Models:Weather description="Proin libero" icon="Vestibulum augue eros" id="38" main="Commodo vestibulum"/>
+					<Models:Weather description="Nec dolor litora nibh luctus" icon="Nisi magnis interdum conubia fames" id="56" main="Hac leo ligula mus inceptos"/>
+					<Models:Weather description="Lobortis nascetur" icon="Mattis pharetra placerat" id="60" main="Non adipiscing"/>
+					<Models:Weather description="Nunc mauris mollis elementum dapibus" icon="Egestas euismod" id="20" main="Cubilia nisl parturient"/>
+				</Markup:Array>
+			</Models:WeatherByZip.weather>
+		</Models:WeatherByZip>
+	</ViewModels:WeatherViewModel.MyWeatherData>
+</ViewModels:WeatherViewModel>
