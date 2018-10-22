@@ -57,6 +57,7 @@ namespace WpfExercise.Views
         {
             weather = new WeatherViewModel();
 
+            //await weather.GetWeatherAsync(TxtBoxZipCode.Text);
             WResult.DataContext = await weather.GetWeatherAsync(TxtBoxZipCode.Text);
 
             //WResult.DataContext = weather.MyWeatherData;

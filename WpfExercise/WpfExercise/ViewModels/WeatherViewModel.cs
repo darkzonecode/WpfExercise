@@ -14,7 +14,7 @@ namespace WpfExercise.ViewModels
     {
         private HttpClient client;
 
-        //public WeatherByZip MyWeatherData { get; set; }
+        //public static WeatherByZip MyWeatherData { get; set; }
 
 
 
@@ -31,9 +31,11 @@ namespace WpfExercise.ViewModels
                 {
                     var r = await response.Content.ReadAsStringAsync();
 
-                    return JsonConvert.DeserializeObject<WeatherByZip>(r);
+                    var w = JsonConvert.DeserializeObject<WeatherByZip>(r);
 
+                    //MyWeatherData = w;
 
+                    return w;
                 }
                 else
                 {
